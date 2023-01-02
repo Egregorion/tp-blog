@@ -19,6 +19,7 @@ class CategoryManager {
         $query = "SELECT * FROM t_category WHERE id_category = :id";
         $stmt = $dbh->prepare($query);
         $stmt->bindParam(':id', $id);
+        $stmt->execute();
         $stmt->setFetchMode(PDO::FETCH_CLASS, 'Category');
         $category = $stmt->fetch();
         return $category;
