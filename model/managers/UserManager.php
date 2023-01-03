@@ -49,7 +49,10 @@ class UserManager {
 
     public static function connectUser($user){
         session_start();
-        $_SESSION['user'] = $user;
+        $_SESSION['user'] = [
+            'id'=>$user->getIdUser(),
+            'pseudo'=>$user->getPseudo(),
+        ];
     }
 
 }
