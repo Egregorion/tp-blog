@@ -2,12 +2,16 @@
 require_once 'partials/header.php';
 ?>
 
-<h1 class="text-center mt-5">Se connecter</h1>
+<h1 class="text-center mt-5">S'enregistrer</h1>
 
 <form action="" method="POST" class="col-md-6 offset-md-3 mt-5">
         <div class="mb-3">
-            <label for="InputMail" class="form-label">Pseudo de l'utilisateur</label>
-            <input type="email" class="form-control" id="InputMail" name="email">
+            <label for="InputPseudo" class="form-label">Pseudo de l'utilisateur</label>
+            <input type="text" class="form-control" id="InputPseudo" name="pseudo">
+        </div>
+        <div class="mb-3">
+            <label for="InputEmail" class="form-label">Email de l'utilisateur</label>
+            <input type="email" class="form-control" id="InputEmail" name="email">
         </div>
         <div class="mb-3">
             <label for="InputPassword" class="form-label">Mot de passe de l'utilisateur</label>

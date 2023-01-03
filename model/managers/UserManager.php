@@ -26,12 +26,30 @@ class UserManager {
         return $user;
     }
 
-    public static function addUser(){
-        //à construire
+    public static function addUser($pseudo, $email, $mdp){
+        $dbh = dbconnect();
+        $query = "INSERT INTO t_user (pseudo, email, password) VALUES (:pseudo, :email, :mdp)";
+        $stmt = $dbh->prepare($query);
+        $stmt->bindParam(':pseudo', $pseudo);
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':mdp', $mdp);
+        $stmt->execute();
     }
 
-    public static function connectUser(){
-        //à construire
+    public static function getUserByEmail($email){
+        $dbh = dbconnect();
+        $query = "SELECT * FROM t_user WHERE t_user.email = :email";
+        $stmt = $dbh->prepare($query);
+        $stmt->bindParam(':email', $email);
+        $stmt->execute();
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'User');
+        $user = $stmt->fetch();
+        return $user;
+    }
+
+    public static function connectUser($user){
+        session_start();
+        $_SESSION['user'] = $user;
     }
 
 }

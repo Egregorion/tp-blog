@@ -1,4 +1,9 @@
-<html lang="en">
+<?php 
+session_start(); 
+var_dump($_SESSION)
+?>
+
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,7 +33,13 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">Se Connecter</a>
+                        <a class="nav-link" href="signup.php">S'inscrire</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.php">Se connecter</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="logout.php">Se déconnecter</a>
                     </li>
                 </ul>
                 <form class="d-flex" role="search">
