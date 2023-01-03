@@ -16,7 +16,7 @@ class PostManager {
         return $posts;//puis on renvoie les résultats
     }
 
-    public static function getPostById($id) {
+    public static function getPostById($id) { //pour récupérer un seul article par son id
         $dbh = dbconnect();
         $query = ("SELECT * FROM t_post WHERE id_post = :id");
         $stmt = $dbh->prepare($query);
@@ -36,5 +36,27 @@ class PostManager {
         $posts = $stmt->fetchAll(PDO::FETCH_CLASS, 'Post');
         return $posts;
     }
+
+    public static function getPostsByUserId($id) {
+        $dbh = dbconnect();
+        $query = "SELECT * FROM t_post JOIN t_user ON t_user.id_user = t_post.id_user WHERE t_post.id_user = :id";
+        $stmt = $dbh->prepare($query);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+        $posts = $stmt->fetchAll(PDO::FETCH_CLASS, 'Post');
+        return $posts;
+    }
     
+    public static function addPost() {
+        //à construire
+    }
+
+    public static function editPost() {
+        //à construire
+    }
+
+    public static function deletePost() {
+        //à construire
+    }
+
 }

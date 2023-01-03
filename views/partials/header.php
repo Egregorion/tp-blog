@@ -23,7 +23,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <?php foreach($categories as $category){ ?>
-                                <li><a class="dropdown-item" href="#"><?php echo $category->getCategoryName() ?></a></li>
+                                <li><a class="dropdown-item" href="category.php?id=<?php echo $category->getIdCategory() ?>"><?php echo $category->getCategoryName() ?></a></li>
                             <?php } ?>
                         </ul>
                     </li>
