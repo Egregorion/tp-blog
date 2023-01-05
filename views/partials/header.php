@@ -49,10 +49,10 @@
             </div>
         </div>
     </nav>
-    <?php if(($status)&&($message)){?>
+    <?php if($_GET['status']&&$_GET['message']){?>
         <div class="container">
-            <div class="alert alert-<?php echo $status ?> alert-dismissible fade show mt-2" role="alert">
-                <?php echo $message ?>
+            <div class="alert alert-<?php echo $_GET['status'] ?> alert-dismissible fade show mt-2" role="alert">
+                <?php echo $_GET['message'] ?>
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
     </div>

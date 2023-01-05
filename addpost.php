@@ -3,11 +3,6 @@ session_start();
 require_once 'model/managers/PostManager.php';
 require_once 'model/managers/CategoryManager.php';
 
-if(isset($_GET['status'])){
-    $status = $_GET['status'];
-    $message = $_GET['message'];
-}
-
 $categories = CategoryManager::getAllCategories();
 
 if(isset($_SESSION['user'])){// je vérifie que j'ai un user

@@ -3,11 +3,6 @@ session_start();
 require_once 'model/managers/UserManager.php';
 require_once 'model/managers/CategoryManager.php';
 
-if(isset($_GET['status'])){
-    $status = $_GET['status'];
-    $message = $_GET['message'];
-}
-
 //reception des données du formulaire
 if(isset($_POST)&&!empty($_POST)){
     $email = $_POST['email'];

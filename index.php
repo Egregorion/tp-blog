@@ -4,11 +4,6 @@ session_start();
 require_once 'model/managers/PostManager.php';
 require_once 'model/managers/CategoryManager.php';
 
-if(isset($_GET['status'])){
-    $status = $_GET['status'];
-    $message = $_GET['message'];
-}
-
 //ici on mettra toute la logique du code
 //nous aurons besoin de récupérer l'ensemble des catégories pour le menu
 $categories = CategoryManager::getAllCategories();
