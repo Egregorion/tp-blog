@@ -1,11 +1,12 @@
 <?php 
 require_once 'partials/header.php';
+require_once 'partials/animation.php';
 ?>
 
 <h1 class="text-center mt-5">Ajouter un article</h1>
 
 <div class="container">
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
         <div class="mb-3">
             <label for="InputTitle" class="form-label">Titre</label>
             <input type="text" class="form-control" id="InputTitle" name="title">

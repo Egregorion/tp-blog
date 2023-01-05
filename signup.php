@@ -1,8 +1,14 @@
 <?php
-
+session_start(); 
 require_once 'model/managers/UserManager.php';
 require_once 'model/managers/CategoryManager.php';
 //reception des données du formulaire
+
+if(isset($_GET['status'])){
+    $status = $_GET['status'];
+    $message = $_GET['message'];
+}
+
 if(isset($_POST)&&!empty($_POST)){
     //sanitisation des données et chiffrement du mot de passe
     $pseudo = htmlentities($_POST['pseudo']);

@@ -1,5 +1,6 @@
 <?php
 require_once 'partials/header.php';
+require_once 'partials/animation.php';
 ?>
 
 <h1 class="text-center mt-5">Se connecter</h1>
@@ -13,7 +14,7 @@ require_once 'partials/header.php';
             <label for="InputPassword" class="form-label">Mot de passe de l'utilisateur</label>
             <input type="password" class="form-control" id="InputPassword" name="mdp">
         </div>
-        <button class="btn btn-primary" type="submit">S'enregistrer</button>
+        <button class="btn btn-primary" type="submit">Se connecter</button>
     </form>
 
 <?php 

@@ -1,4 +1,57 @@
+@media (max-width:768px) {
+    .animated-img {
+        visibility: hidden;
+    }
+}
+
+@media (max-width:992px) {
+    .animated-img {
+        width: 25%;
+    }
+}
+
+@media (min-width:992px) and (max-width:1400px) {
+    .animated-img {
+        width: 35%;
+    }
+}
+
+.animated-img {
+    animation: myAnimation 5s infinite;
+    position:absolute;
+    right:0;
+    bottom:0;
+}
+
+@keyframes myAnimation {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: translateY(0.5em) rotate(0.5deg);
+    }
+    100% {
+        transform: rotate(0deg) translateY(0);
+    }
+}
+
+
 .card {
     padding:0 !important;
-    margin:0 0.5em !important;
+}
+
+#main {
+    margin-top:-10em;
+    background-color: rgba(255, 255, 255, 0.5);
+    position:relative;
+    z-index:1000;
+    padding-bottom:1em;
+}
+
+#heroCat {
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position:center;
+    height:100vh;
+    padding-top:2em;
 }

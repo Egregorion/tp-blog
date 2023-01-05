@@ -1,7 +1,12 @@
 <?php
-
+session_start(); 
 require_once 'model/managers/UserManager.php';
 require_once 'model/managers/CategoryManager.php';
+
+if(isset($_GET['status'])){
+    $status = $_GET['status'];
+    $message = $_GET['message'];
+}
 
 //reception des données du formulaire
 if(isset($_POST)&&!empty($_POST)){
@@ -13,6 +18,9 @@ if(isset($_POST)&&!empty($_POST)){
     $verified_user = password_verify($mdp, $user->getPassword());
     if($verified_user){ //
         UserManager::connectUser($user);
+        header('location:index.php?status=success&message=Vous êtes bien connecté');
+    }else{
+        header('location:login.php?status=danger&message=email ou mot de passe incorrect');
     }
 }
 

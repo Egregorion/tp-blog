@@ -1,0 +1,1 @@
+<img src="assets/img/animebg.png" class="animated-img" alt="">

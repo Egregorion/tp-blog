@@ -1,8 +1,3 @@
-<?php 
-session_start(); 
-var_dump($_SESSION)
-?>
-
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -14,7 +9,7 @@ var_dump($_SESSION)
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-light">
+    <nav class="navbar navbar-dark navbar-expand-lg bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="./">Mon Super Blog</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,21 +27,35 @@ var_dump($_SESSION)
                             <?php } ?>
                         </ul>
                     </li>
+                    <?php if($_SESSION['user']){ ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="logout.php">Se déconnecter</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="addpost.php">Ecrire un article</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="addcategory.php">Ajouter une catégorie</a>
+                        </li>
+                    <?php } else { ?>
                     <li class="nav-item">
                         <a class="nav-link" href="signup.php">S'inscrire</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="login.php">Se connecter</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="logout.php">Se déconnecter</a>
-                    </li>
+                    <?php } ?>
                 </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
             </div>
         </div>
     </nav>
+    <?php if(($status)&&($message)){?>
+        <div class="container">
+            <div class="alert alert-<?php echo $status ?> alert-dismissible fade show mt-2" role="alert">
+                <?php echo $message ?>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+    </div>
+    <?php } ?>
+
     

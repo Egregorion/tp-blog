@@ -50,7 +50,6 @@ class PostManager {
     public static function addPost($title, $picture, $content, $userId) {
         $dbh = dbconnect();
         $date = (new DateTime())->format('Y-m-d H:i:s');
-        var_dump($date);
         $query = "INSERT INTO t_post (title, date, picture, content, id_user) VALUES (:title, '$date', :picture, :content, :id_user)";
         $stmt = $dbh->prepare($query);
         $stmt->bindParam(':title', $title);
@@ -59,6 +58,15 @@ class PostManager {
         $stmt->bindParam(':id_user', $userId);
         $stmt->execute();
         return $dbh->lastInsertId();
+    }
+
+    public static function addPostCategories($id_post, $id_category){
+        $dbh  = dbconnect();
+        $query = "INSERT INTO t_post_category (id_post, id_category) VALUES (:post, :cat)";
+        $stmt = $dbh->prepare($query);
+        $stmt->bindParam(':post', $id_post);
+        $stmt->bindParam(':cat', $id_category);
+        $stmt->execute();
     }
 
     public static function editPost() {

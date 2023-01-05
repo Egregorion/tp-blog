@@ -1,5 +1,6 @@
 <?php
 require_once 'partials/header.php';
+require_once 'partials/animation.php';
 ?>
 
 <h1 class="text-center mt-5">S'enregistrer</h1>
