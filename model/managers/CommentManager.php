@@ -25,5 +25,13 @@ class CommentManager{
         $stmt->bindParam(':content', $content);
         $stmt->execute();
     }
+
+    public static function deleteCommentsByPostId($id){
+        $dbh  = dbconnect();
+        $query = "DELETE FROM t_comment WHERE t_comment.id_post = :id";
+        $stmt = $dbh->prepare($query);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+    }
 }
 

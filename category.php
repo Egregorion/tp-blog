@@ -7,8 +7,11 @@ require_once 'model/managers/PostManager.php';
 if(isset($_GET['id'])&&!empty($_GET['id'])){
     $id = $_GET['id'];
     $categoryInfos = CategoryManager::getCategoryInfos($id);
+    if(!$categoryInfos){ //si on recoit un id qui ne correspond pas à une catégorie, on redirige vers la page d'erreur 
+        header('location:404.php');
+    }
     $categoryPosts = PostManager::getPostsByCategoryId($id);
-}else{
+}else{//si pas d'id => page d'erreur
     header('location:404.php');
 }
 

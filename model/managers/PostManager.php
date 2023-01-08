@@ -69,12 +69,33 @@ class PostManager {
         $stmt->execute();
     }
 
-    public static function editPost() {
-        //à construire
+    public static function editPost($id, $title, $picture, $content, $userId) {
+        $dbh = dbconnect();
+        $date = (new DateTime())->format('Y-m-d H:i:s');
+        $query = "UPDATE t_post SET title = :title, date = '$date', picture = :picture, content = :content, id_user = :id_user WHERE t_post.id_post = :id";
+        $stmt = $dbh->prepare($query);
+        $stmt->bindParam(':id', $id);
+        $stmt->bindParam(':title', $title);
+        $stmt->bindParam(':picture', $picture);
+        $stmt->bindParam(':content', $content);
+        $stmt->bindParam(':id_user', $userId);
+        $stmt->execute();
     }
 
-    public static function deletePost() {
-        //à construire
+    public static function deletePostCategoriesByPostId($id){
+        $dbh  = dbconnect();
+        $query = "DELETE FROM t_post_category WHERE t_post_category.id_post = :id";
+        $stmt = $dbh->prepare($query);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+    }
+        
+    public static function deletePost($id) {
+        $dbh  = dbconnect();
+        $query = "DELETE FROM t_post WHERE t_post.id_post = :id";
+        $stmt = $dbh->prepare($query);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
     }
 
 }

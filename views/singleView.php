@@ -8,7 +8,13 @@ require_once 'partials/header.php';
 
 <section id="main" class="container">
     <h1 class="text-center"><?php echo $post->getTitle() ?></h1>
-    <div id="caegories">
+    <?php if($_SESSION['user']['id'] === $author->getIdUser()){ ?>
+        <div class="d-flex justify-content-end">
+            <a href="editpost.php?id=<?php echo $post->getIdPost() ?>" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a>
+            <a href="deletepost.php?id=<?php echo $post->getIdPost() ?>" class="btn btn-danger"><i class="bi bi-trash3-fill"></i></a>
+        </div>
+    <?php } ?>
+    <div id="categories">
         <?php foreach($post_categories as $post_category){ ?>
             <a href="category.php?id=<?php echo $post_category->getIdCategory() ?>" class="badge rounded-pill text-bg-primary"><?php echo $post_category->getCategoryName() ?></a>
         <?php } ?>

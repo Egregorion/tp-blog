@@ -11,6 +11,9 @@ if(isset($_GET['id'])&&!empty($_GET['id'])){
     $id = $_GET['id'];
     //on va chercher les informations de l'article qu'on souhaite afficher
     $post = PostManager::getPostById($id); //les infos de l'article
+    if(!$post){ //si on recoit un id qui ne correspond pas à un article, on redirige vers la page d'erreur 
+        header('location:404.php');
+    }
     $post_categories = CategoryManager::getCategoriesByPostId($id);//les categories auxquelles il est relié
     $author = UserManager::getAuthorByPostId($id);
     $comments = CommentManager::getCommentsByPostId($id);
