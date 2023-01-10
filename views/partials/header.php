@@ -50,7 +50,7 @@
             </div>
         </div>
     </nav>
-    <?php if($_GET['status']&&$_GET['message']){?>
+    <?php if(isset($_GET['status'])){?>
         <div class="container">
             <div class="alert alert-<?php echo $_GET['status'] ?> alert-dismissible fade show mt-2" role="alert">
                 <?php echo $_GET['message'] ?>

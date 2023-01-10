@@ -8,7 +8,7 @@ require_once 'partials/header.php';
 
 <section id="main" class="container">
     <h1 class="text-center"><?php echo $post->getTitle() ?></h1>
-    <?php if($_SESSION['user']['id'] === $author->getIdUser()){ ?>
+    <?php if(isset($_SESSION['user'])&& $_SESSION['user']['id'] === $author->getIdUser()){ ?>
         <div class="d-flex justify-content-end">
             <a href="editpost.php?id=<?php echo $post->getIdPost() ?>" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a>
             <a href="deletepost.php?id=<?php echo $post->getIdPost() ?>" class="btn btn-danger"><i class="bi bi-trash3-fill"></i></a>
@@ -34,7 +34,7 @@ require_once 'partials/header.php';
         </div>
     <?php } ?>
 
-    <?php if($_SESSION['user']){ ?>
+    <?php if(isset($_SESSION['user'])){ ?>
     <div id="addcomment">
         <form action="" method="post">
             <div class="mb-3">
