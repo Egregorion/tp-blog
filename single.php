@@ -27,7 +27,7 @@ if(isset($_POST)&&!empty($_POST)){
     $user_id = $_SESSION['user']['id'];
     $content = $_POST['content'];
     CommentManager::addComment($post_id, $user_id, $content);
-    header("location:single.php?id=$post_id&status=success&message=Votre commentaire a bien été ajouté");
+    //header("location:single.php?id=$post_id&status=success&message=Votre commentaire a bien été ajouté");
 }
 
 //toutes nos catégories pour le menu de navigation
